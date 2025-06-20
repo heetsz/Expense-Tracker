@@ -22,3 +22,15 @@ exports.addExpenses = async (req, res) => {
             res.status(400).json({ message: err.message });
       }
 };
+
+exports.addManyExpenses = async (req, res) => {
+      try {
+            if (!Array.isArray(req.body)) {
+                  return res.status(400).json({ message: "Request body must be an array" });
+            }
+            const savedExpenses = await Expenses.insertMany(req.body);
+            res.status(201).json({ savedExpenses });
+      } catch (err) {
+            res.status(400).json({ message: err.message });
+      }
+};

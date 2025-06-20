@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config()
 const port = process.env.PORT || 3000
 const connectDB = require("./config/connectionDB")
 connectDB()
+app.use(express.json())
 
 
 const expensesRoute = require("./routes/expenses.route")

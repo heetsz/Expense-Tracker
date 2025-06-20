@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const expensesSchema = new mongoose.Schema(
-      {
+const expensesSchema = new mongoose.Schema({
             name: {
                   type: String,
                   required: true,
@@ -15,6 +14,6 @@ const expensesSchema = new mongoose.Schema(
             },
       },
       { timestamps: true }
-);
+)
 
 module.exports = mongoose.model("Expenses", expensesSchema);
